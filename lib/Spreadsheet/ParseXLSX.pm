@@ -1,4 +1,6 @@
 package Spreadsheet::ParseXLSX;
+our $AUTHORITY = 'cpan:DOY';
+$Spreadsheet::ParseXLSX::VERSION = '0.27';
 use strict;
 use warnings;
 use 5.010;
@@ -12,37 +14,7 @@ use XML::Twig;
 
 use Spreadsheet::ParseXLSX::Decryptor;
 
-=head1 SYNOPSIS
 
-  use Spreadsheet::ParseXLSX;
-
-  my $parser = Spreadsheet::ParseXLSX->new;
-  my $workbook = $parser->parse("file.xlsx");
-  # see Spreadsheet::ParseExcel for further documentation
-
-=head1 DESCRIPTION
-
-This module is an adaptor for L<Spreadsheet::ParseExcel> that reads XLSX files.
-For documentation about the various data that you can retrieve from these
-classes, please see L<Spreadsheet::ParseExcel>,
-L<Spreadsheet::ParseExcel::Workbook>, L<Spreadsheet::ParseExcel::Worksheet>,
-and L<Spreadsheet::ParseExcel::Cell>.
-
-=cut
-
-=method new(%opts)
-
-Returns a new parser instance. Takes a hash of parameters:
-
-=over 4
-
-=item Password
-
-Password to use for decrypting encrypted files.
-
-=back
-
-=cut
 
 sub new {
     my $class = shift;
@@ -54,14 +26,6 @@ sub new {
     return $self;
 }
 
-=method parse($file, $formatter)
-
-Parses an XLSX file. Parsing errors throw an exception. C<$file> can be either
-a filename or an open filehandle. Returns a
-L<Spreadsheet::ParseExcel::Workbook> instance containing the parsed data.
-The C<$formatter> argument is an optional formatter class as described in L<Spreadsheet::ParseExcel>.
-
-=cut
 
 sub parse {
     my $self = shift;
@@ -1135,6 +1099,60 @@ sub _new_twig {
     );
 }
 
+
+1;
+
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Spreadsheet::ParseXLSX - parse XLSX files
+
+=head1 VERSION
+
+version 0.27
+
+=head1 SYNOPSIS
+
+  use Spreadsheet::ParseXLSX;
+
+  my $parser = Spreadsheet::ParseXLSX->new;
+  my $workbook = $parser->parse("file.xlsx");
+  # see Spreadsheet::ParseExcel for further documentation
+
+=head1 DESCRIPTION
+
+This module is an adaptor for L<Spreadsheet::ParseExcel> that reads XLSX files.
+For documentation about the various data that you can retrieve from these
+classes, please see L<Spreadsheet::ParseExcel>,
+L<Spreadsheet::ParseExcel::Workbook>, L<Spreadsheet::ParseExcel::Worksheet>,
+and L<Spreadsheet::ParseExcel::Cell>.
+
+=head1 METHODS
+
+=head2 new(%opts)
+
+Returns a new parser instance. Takes a hash of parameters:
+
+=over 4
+
+=item Password
+
+Password to use for decrypting encrypted files.
+
+=back
+
+=head2 parse($file, $formatter)
+
+Parses an XLSX file. Parsing errors throw an exception. C<$file> can be either
+a filename or an open filehandle. Returns a
+L<Spreadsheet::ParseExcel::Workbook> instance containing the parsed data.
+The C<$formatter> argument is an optional formatter class as described in L<Spreadsheet::ParseExcel>.
+
 =head1 INCOMPATIBILITIES
 
 This module returns data using classes from L<Spreadsheet::ParseExcel>, so for
@@ -1247,6 +1265,16 @@ Parts of this code were paid for by
 
 =back
 
-=cut
+=head1 AUTHOR
 
-1;
+Jesse Luehrs <doy@tozt.net>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2016 by Jesse Luehrs.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
+
+=cut

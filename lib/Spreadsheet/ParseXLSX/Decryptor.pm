@@ -1,4 +1,6 @@
 package Spreadsheet::ParseXLSX::Decryptor;
+our $AUTHORITY = 'cpan:DOY';
+$Spreadsheet::ParseXLSX::Decryptor::VERSION = '0.27';
 use strict;
 use warnings;
 
@@ -205,13 +207,36 @@ sub new {
     return bless $self, $class;
 }
 
-=begin Pod::Coverage
-
-  new
-  open
-
-=end Pod::Coverage
-
-=cut
 
 1;
+
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Spreadsheet::ParseXLSX::Decryptor
+
+=head1 VERSION
+
+version 0.27
+
+=for Pod::Coverage   new
+  open
+
+=head1 AUTHOR
+
+Jesse Luehrs <doy@tozt.net>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2016 by Jesse Luehrs.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
+
+=cut

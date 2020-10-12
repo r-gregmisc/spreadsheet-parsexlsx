@@ -1,4 +1,6 @@
 package Spreadsheet::ParseXLSX::Decryptor::Standard;
+our $AUTHORITY = 'cpan:DOY';
+$Spreadsheet::ParseXLSX::Decryptor::Standard::VERSION = '0.27';
 use strict;
 use warnings;
 
@@ -77,14 +79,37 @@ sub verifyPassword {
     die "Wrong password: $self" unless ($verifierHash0 eq substr($verifierHash, 0, length($verifierHash0)));
 }
 
-=begin Pod::Coverage
 
-  decrypt
+1;
+
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Spreadsheet::ParseXLSX::Decryptor::Standard
+
+=head1 VERSION
+
+version 0.27
+
+=for Pod::Coverage   decrypt
   decryptFile
   verifyPassword
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Jesse Luehrs <doy@tozt.net>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2016 by Jesse Luehrs.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
 
 =cut
-
-1;
