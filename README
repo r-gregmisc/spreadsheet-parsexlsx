@@ -1,4 +1,9 @@
+The Spreadsheet::ParseXLSX package (doy/spreadsheet-parsexlsx) has been unchanged since 2016 and seems to have been abandonned.
 
+The purpose of this repo is to integrate community provided PR's in order to release a new version to CPAN.
+
+
+-----
 
 This archive contains the distribution Spreadsheet-ParseXLSX,
 version 0.27:
